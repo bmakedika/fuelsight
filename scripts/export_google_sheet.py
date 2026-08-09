@@ -20,7 +20,12 @@ from config.settings import (
 
 def connect_to_google_sheet():
     """Connexion à Google Sheets."""
-    pass
+    
+    client = gspread.service_account(
+        filename=GOOGLE_SERVICE_ACCOUNT_FILE
+    )
+
+    return client
 
 
 def read_google_sheet():
