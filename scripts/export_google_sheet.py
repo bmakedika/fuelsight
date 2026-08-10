@@ -28,9 +28,15 @@ def connect_to_google_sheet():
     return client
 
 
-def read_google_sheet():
+def read_google_sheet(client, worksheet_name):
     """Lecture des données Google Sheets."""
-    pass
+    
+    spreadsheet = client.open_by_key(GOOGLE_SHEET_ID)
+    worksheet = spreadsheet.worksheet(worksheet_name)
+    records = worksheet.get_all_records()
+    dataframe = pd.DataFrame(records)
+
+    return dataframe
 
 
 def export_to_csv():
