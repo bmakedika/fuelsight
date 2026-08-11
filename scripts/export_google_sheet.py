@@ -39,9 +39,20 @@ def read_google_sheet(client, worksheet_name):
     return dataframe
 
 
-def export_to_csv():
-    """Création du fichier CSV."""
-    pass
+def export_to_csv(
+    dataframe,
+    export_directory,
+    export_filename
+):
+    """Création du fichier CSV à partir du DataFrame."""
+    
+    export_directory = Path(export_directory)
+    if not export_directory.exists():
+        export_directory.mkdir(parents=True, exist_ok=True)
+    export_path = export_directory / export_filename
+    dataframe.to_csv(export_path, index=False)
+
+    return export_path
 
 
 def main():
