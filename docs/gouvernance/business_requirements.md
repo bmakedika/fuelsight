@@ -48,35 +48,35 @@ Cette transformation permettra de faire de la donnée un outil de pilotage opér
 | BR-007 | Identification des anomalies | Moyenne | V2 |
 | BR-008 | Sécurisation de l'accès aux données | Basse | V3 |
 
-### BR-001 — Centralisation des données carburant
+### BR-001 - Centralisation des données carburant
 
 Centraliser les données carburant.
 
-### BR-002 — Historisation des transactions
+### BR-002 - Historisation des transactions
 
 Historiser toutes les transactions.
 
-### BR-003 — Contrôle du stock théorique
+### BR-003 - Contrôle du stock théorique
 
 Contrôler le stock théorique.
 
-### BR-004 — Contrôle du stock physique
+### BR-004 - Contrôle du stock physique
 
 Contrôler le stock physique.
 
-### BR-005 — Mesure des écarts
+### BR-005 - Mesure des écarts
 
 Mesurer les écarts.
 
-### BR-006 — Analyse de la consommation par asset
+### BR-006 - Analyse de la consommation par asset
 
 Analyser la consommation par asset.
 
-### BR-007 — Identification des anomalies
+### BR-007 - Identification des anomalies
 
 Identifier les anomalies.
 
-### BR-008 — Sécurisation de l'accès aux données
+### BR-008 - Sécurisation de l'accès aux données
 
 Sécuriser l'accès aux données.
 

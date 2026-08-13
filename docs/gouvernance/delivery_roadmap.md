@@ -1,6 +1,6 @@
 # Delivery Roadmap
 
-*(Phases de livraison du projet — à ne pas confondre avec la Roadmap V1/V2/V3 du Product Backlog, qui découpe le périmètre fonctionnel.)*
+*(Phases de livraison du projet - à ne pas confondre avec la Roadmap V1/V2/V3 du Product Backlog, qui découpe le périmètre fonctionnel.)*
 
 ## Phase 1 - Product Discovery
 
