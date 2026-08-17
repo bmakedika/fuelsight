@@ -91,6 +91,7 @@ Google Sheets → Export CSV → PostgreSQL RAW → PostgreSQL STAGING → Data 
 ## Technologies
 
 - Google Sheets
+- Google Cloud Platform (GCP)
 - PostgreSQL
 - Docker
 - Python
@@ -111,8 +112,6 @@ FuelSight vise à générer un impact opérationnel concret :
 
 L'objectif n'est pas uniquement de produire des tableaux de bord, mais de transformer les données brutes en informations exploitables et directement utiles aux équipes terrain.
 
-## Auteur
+## Licence
 
-Bienvenu MAKEDIKA MAKUALA
-
-Projet personnel de Data Analytics et Business Intelligence destiné à améliorer la gestion opérationnelle des carburants.
+Ce projet est distribué sous licence MIT.
