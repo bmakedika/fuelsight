@@ -2,115 +2,246 @@
 
 ## Présentation
 
-FuelSight est une plateforme d'analyse décisionnelle dédiée à la gestion des opérations carburant.
+FuelSight est un projet Data dédié à l’analyse et au pilotage des opérations carburant.
 
-Le projet vise à transformer des données opérationnelles collectées quotidiennement en indicateurs fiables et actionnables permettant d'améliorer la prise de décision.
+Le projet vise à transformer des données opérationnelles collectées quotidiennement en informations fiables et en indicateurs utiles à la prise de décision.
 
-FuelSight a été conçu afin de moderniser et automatiser le suivi des stocks, des distributions et des consommations de carburant.
+FuelSight est né d’une problématique directement issue du terrain : fiabiliser, structurer et progressivement automatiser le traitement de données aujourd’hui gérées principalement à l’aide de fichiers Excel.
 
-## Contexte
+> **Projet en cours de développement : l’implémentation actuelle couvre la première étape du pipeline de données. L’architecture présentée dans ce README décrit la cible du projet et les prochaines étapes.**
 
-Actuellement, les opérations carburant reposent principalement sur des fichiers Excel comportant :
+---
 
-- plusieurs onglets mensuels ;
-- des calculs manuels ;
-- des risques d'erreurs de manipulation ;
-- une faible traçabilité ;
-- des difficultés d'analyse historique.
+## Contexte métier
 
-FuelSight vise à éliminer ces contraintes en mettant en place une architecture de données moderne.
+Les opérations carburant reposent actuellement principalement sur des fichiers Excel comportant notamment :
+
+* plusieurs onglets mensuels ;
+* des calculs et consolidations manuels ;
+* des risques d’erreurs de manipulation ;
+* une traçabilité limitée ;
+* des difficultés pour exploiter efficacement l’historique.
+
+Ces contraintes rendent plus difficile le contrôle des stocks, l’analyse des consommations et la production régulière d’indicateurs fiables.
+
+---
 
 ## Origine du projet
 
-FuelSight est né d'une expérience de terrain.
+FuelSight est né d’une expérience de terrain dans la gestion opérationnelle du carburant et des actifs de transport.
 
-Lors de missions impliquant la gestion opérationnelle du carburant et des actifs de transport, il a été constaté que les équipes consacraient une part importante de leur temps à la consolidation manuelle de données provenant de plusieurs feuilles Excel.
+Les opérations nécessitaient notamment la consolidation de données provenant de plusieurs feuilles Excel, des contrôles manuels, des vérifications de stocks et des recalculs avant la production des rapports.
 
-La production des rapports nécessitait de nombreux contrôles manuels, des vérifications régulières des stocks et des recalculs fréquents, augmentant ainsi le risque d'erreur et réduisant le temps disponible pour l'analyse.
+Cette expérience a fait émerger une problématique simple :
 
-Ce projet a été initié dans le but de proposer une approche moderne de gestion de l'information, capable d'automatiser la collecte, la transformation et la visualisation des données afin d'accompagner les responsables des opérations dans leur prise de décision quotidienne.
+**Comment transformer une gestion opérationnelle largement manuelle en un processus de données plus fiable, traçable et progressivement automatisé ?**
 
-Au-delà de son aspect technique, FuelSight représente également une volonté de valoriser l'expertise métier acquise sur le terrain et de contribuer à l'amélioration des processus utilisés par les équipes opérationnelles.
+FuelSight constitue une réponse progressive à cette problématique, en associant connaissance du métier et développement de compétences Data.
+
+---
+
+## État actuel du projet
+
+Le projet est actuellement dans une phase de construction progressive de son pipeline de données.
+
+### Fonctionnalité actuellement réalisée
+
+**US-01 — Export des données Google Sheets vers CSV**
+
+La première étape du pipeline permet de récupérer les données depuis une feuille Google Sheets et de les exporter au format CSV.
+
+Flux actuellement implémenté :
+
+```text
+Google Sheets → gspread → Pandas DataFrame → CSV
+```
+
+Cette fonctionnalité comprend notamment :
+
+* connexion à Google Sheets via un compte de service ;
+* lecture de la feuille de calcul ;
+* chargement des données dans un DataFrame Pandas ;
+* export des données au format CSV ;
+* configuration des paramètres via des variables d’environnement ;
+* validation des variables nécessaires à l’exécution.
+
+Cette première étape constitue le point de départ du pipeline de données FuelSight.
+
+### Technologies actuellement utilisées
+
+* Python
+* Pandas
+* Google Sheets
+* gspread
+* python-dotenv
+* Git / GitHub
+
+---
 
 ## Vision
 
-Transformer les données carburant en intelligence opérationnelle afin de faciliter et accélérer la prise de décision.
+Transformer progressivement les données carburant en une source fiable d’intelligence opérationnelle afin de faciliter le suivi, l’analyse et la prise de décision.
+
+L’objectif n’est pas uniquement de produire des tableaux de bord, mais de construire une chaîne de traitement permettant de passer progressivement :
+
+**des données opérationnelles → aux données fiables → aux indicateurs → à l’aide à la décision.**
+
+---
 
 ## Objectifs
 
 ### Objectifs métiers
 
-- Réduire le temps consacré aux tâches manuelles.
-- Sécuriser les données opérationnelles.
-- Contrôler les niveaux de stock.
-- Identifier les anomalies de consommation.
-- Fournir des indicateurs fiables aux superviseurs.
+* Réduire le temps consacré aux tâches manuelles.
+* Fiabiliser les données opérationnelles.
+* Améliorer la traçabilité des opérations carburant.
+* Contrôler les niveaux de stock.
+* Identifier les anomalies de consommation.
+* Fournir des indicateurs fiables aux responsables des opérations.
 
 ### Objectifs techniques
 
-- Standardiser la collecte des données.
-- Centraliser le stockage dans PostgreSQL.
-- Construire un Data Warehouse.
-- Développer un modèle en étoile.
-- Créer des tableaux de bord Power BI.
+* Standardiser la collecte des données.
+* Mettre en place un pipeline de transformation progressivement automatisé.
+* Centraliser les données dans une architecture structurée.
+* Construire un modèle de données adapté à l’analyse.
+* Mettre en place des contrôles de qualité des données.
+* Produire des indicateurs et tableaux de bord exploitables.
+
+---
 
 ## Architecture cible
 
-Google Sheets → Export CSV → PostgreSQL RAW → PostgreSQL STAGING → Data Warehouse → Power BI
+L’architecture cible du projet est la suivante :
 
-## Fonctionnalités prévues
+```text
+Google Sheets → Export CSV → PostgreSQL RAW → PostgreSQL STAGING → Data Warehouse → Data Mart → Power BI
+```
+
+Cette architecture représente **la cible du projet** et non l’état actuel de l’implémentation.
+
+Le pipeline sera construit progressivement afin de valider chaque étape avant d’étendre le périmètre fonctionnel.
+
+---
+
+## Conception des données
+
+La conception actuelle prévoit une organisation des données en plusieurs couches :
+
+```text
+Source → RAW → STAGING → Data Warehouse → Data Mart
+```
+
+Le modèle analytique cible repose sur une organisation de type **schéma en étoile**, avec des tables de faits et des dimensions permettant de faciliter l'analyse des opérations carburant.
+
+La conception de PostgreSQL, des différentes couches de données et du modèle analytique fait partie du travail préparatoire à l'implémentation des prochaines étapes.
+
+---
+
+## Prochaines étapes
+
+Le développement sera poursuivi progressivement autour des étapes suivantes :
+
+### Pipeline de données
+
+* Mise en place de la couche RAW.
+* Intégration du stockage PostgreSQL.
+* Transformation vers la couche STAGING.
+* Construction du Data Warehouse.
+* Construction des Data Marts.
+
+### Qualité des données
+
+* Détection des doublons.
+* Contrôle des anomalies.
+* Validation des données obligatoires.
+* Contrôle des index et kilométrages.
+* Mise en place progressive de contrôles automatisés.
+
+### Analyse et restitution
+
+* Analyse des consommations.
+* Suivi des stocks théoriques et physiques.
+* Contrôle des écarts.
+* Analyse par véhicule, camion ou générateur.
+* Analyse des tendances.
+* Construction des tableaux de bord Power BI.
+
+### Tests
+
+* Mise en place progressive d’une stratégie de tests.
+* Automatisation des contrôles sur les différentes étapes du pipeline.
+
+---
+
+## Fonctionnalités métier prévues
 
 ### Gestion des transactions
 
-- Réceptions carburant
-- Distributions carburant
-- Transferts
-- Corrections
+* Réceptions carburant
+* Distributions carburant
+* Transferts
+* Corrections
 
 ### Gestion des stocks
 
-- Stock théorique
-- Stock physique
-- Contrôle des écarts
+* Stock théorique
+* Stock physique
+* Contrôle des écarts
 
 ### Analyse
 
-- Consommation par véhicule
-- Consommation par camion
-- Consommation par générateur
-- Analyse des tendances
-- Prévisions
+* Consommation par véhicule
+* Consommation par camion
+* Consommation par générateur
+* Analyse des tendances
+* Prévisions
 
 ### Contrôle qualité
 
-- Détection des doublons
-- Détection des anomalies
-- Contrôle des index
-- Contrôle des kilométrages
+* Détection des doublons
+* Détection des anomalies
+* Contrôle des index
+* Contrôle des kilométrages
+
+---
 
 ## Technologies
 
-- Google Sheets
-- Google Cloud Platform (GCP)
-- PostgreSQL
-- Docker
-- Python
-- SQL
-- Power BI
-- GitHub
+### Actuellement utilisées
+
+* Python
+* Pandas
+* Google Sheets
+* gspread
+* python-dotenv
+* Git / GitHub
+
+### Prévues dans l’architecture cible
+
+* PostgreSQL
+* SQL
+* Docker
+* Power BI
+
+Ces technologies correspondent aux prochaines étapes d’implémentation et ne doivent pas être interprétées comme déjà intégrées au pipeline actuel.
+
+---
 
 ## Impact attendu
 
-FuelSight vise à générer un impact opérationnel concret :
+À terme, FuelSight vise notamment à :
 
-- Réduction du temps consacré au reporting.
-- Diminution des erreurs liées aux manipulations Excel.
-- Amélioration de la traçabilité des opérations carburant.
-- Disponibilité rapide des indicateurs de performance.
-- Renforcement du contrôle des stocks et des consommations.
-- Amélioration de la qualité des décisions opérationnelles.
+* réduire le temps consacré au reporting ;
+* diminuer les erreurs liées aux manipulations manuelles ;
+* améliorer la traçabilité des opérations carburant ;
+* faciliter l’accès aux indicateurs opérationnels ;
+* renforcer le contrôle des stocks et des consommations ;
+* améliorer la capacité d’analyse et de décision des équipes opérationnelles.
 
-L'objectif n'est pas uniquement de produire des tableaux de bord, mais de transformer les données brutes en informations exploitables et directement utiles aux équipes terrain.
+L’objectif est de construire progressivement une chaîne de données fiable permettant de transformer les données brutes issues des opérations en informations directement utiles au métier.
+
+---
 
 ## Licence
 
